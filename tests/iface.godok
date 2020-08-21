@@ -1,0 +1,26 @@
+package tests
+
+import (
+	"fmt"
+)
+
+// TestI ...
+type TestI interface {
+	Test()
+}
+
+// Test ...
+type Test struct {
+	Name string
+}
+
+// NewTest news test
+// It returns pointer to Test
+func NewTest() *Test {
+	return &Test{Name: "tests"}
+}
+
+// Test tests
+func (t *Test) Test() {
+	fmt.Println(t.Name)
+}

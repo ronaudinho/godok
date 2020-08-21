@@ -1,0 +1,47 @@
+package tests
+
+import (
+	"errors"
+	"fmt"
+)
+
+// ErrNoName ...
+var ErrNoName = errors.New("no name")
+
+// Simple ...
+type Simple struct {
+	Name string
+}
+
+// SimpleF simples f
+func SimpleF() {
+	fmt.Println("simple")
+}
+
+// Test tests
+func (s *Simple) Test() {
+	fmt.Println(s.Name)
+}
+
+// String strings
+// It returns string
+func (s *Simple) String() string {
+	return s.Name
+}
+
+// HasName hass name
+// It returns bool
+func (s *Simple) HasName() bool {
+	return s.Name != ""
+}
+
+// Replace replaces
+// It takes string as parameters
+// It returns error
+func (s *Simple) Replace(str string) error {
+	if !s.HasName() {
+		return ErrNoName
+	}
+	s.Name = str
+	return nil
+}
